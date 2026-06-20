@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>L'Héritage des Colosses — Le Pack Découverte Cane Corso</title>
+<meta name="description" content="Le Pack Découverte Cane Corso — Blueprint Essentiel, Audio Exclusif, Checklist. Parce qu'on ne possède pas un Cane Corso, on gagne le droit de marcher à ses côtés." />
+<meta name="theme-color" content="#0B0B0B" />
+<meta property="og:title" content="L'Héritage des Colosses — Le Pack Découverte Cane Corso" />
+<meta property="og:description" content="Comprendre, guider et marcher aux côtés d'un Cane Corso." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://project--bde7699c-0759-4c45-8b55-917723569597.lovable.app/__l5e/assets-v1/c1455186-ff36-4dd6-922f-1ef11436236b/hero-cane-corso.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --noir:#0B0B0B;
+    --noir-2:#111111;
+    --noir-3:#161616;
+    --or:#D4AF37;
+    --or-soft:#b8962e;
+    --or-glow:rgba(212,175,55,.18);
+    --blanc:#F5F5F5;
+    --gris:#9a9a9a;
+    --serif:"Cormorant Garamond", "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    background:var(--noir);
+    color:var(--blanc);
+    line-height:1.6;
+    font-weight:300;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--or);color:var(--noir)}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  section{padding:120px 0;position:relative}
+  @media (max-width:768px){ section{padding:80px 0} }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(to bottom, rgba(11,11,11,.85), rgba(11,11,11,0));
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    transition:background .4s ease;
+  }
+  .nav.scrolled{background:rgba(11,11,11,.92);border-bottom:1px solid rgba(212,175,55,.12)}
+  .nav-logo{display:flex;align-items:center;gap:12px}
+  .nav-logo img{height:52px;width:auto;filter:drop-shadow(0 2px 8px rgba(212,175,55,.3))}
+  .nav-logo span{font-family:var(--serif);font-size:18px;letter-spacing:.18em;color:var(--blanc);text-transform:uppercase}
+  .nav-cta{
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    padding:10px 22px;border:1px solid var(--or);color:var(--or);
+    transition:all .35s ease;
+  }
+  .nav-cta:hover{background:var(--or);color:var(--noir)}
+  @media (max-width:600px){ .nav-logo span{display:none} .nav-cta{padding:8px 16px;font-size:11px} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;min-height:100svh;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;text-align:center;
+    padding:120px 24px 80px;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(212,175,55,.12), transparent 60%),
+      url('https://project--bde7699c-0759-4c45-8b55-917723569597.lovable.app/__l5e/assets-v1/c1455186-ff36-4dd6-922f-1ef11436236b/hero-cane-corso.jpg') center/cover no-repeat,
+      var(--noir);
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(to bottom, rgba(11,11,11,.55) 0%, rgba(11,11,11,.35) 40%, rgba(11,11,11,.85) 85%, var(--noir) 100%),
+      linear-gradient(to right, rgba(11,11,11,.7), transparent 40%, transparent 60%, rgba(11,11,11,.7));
+  }
+  .hero-content{position:relative;z-index:1;max-width:880px}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--or);margin-bottom:32px;
+    opacity:0;animation:fadeUp 1s .2s ease forwards;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after{content:"";width:36px;height:1px;background:var(--or);opacity:.6}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(38px, 6.5vw, 78px);
+    line-height:1.05;
+    letter-spacing:-.01em;
+    margin-bottom:20px;
+    opacity:0;animation:fadeUp 1.1s .4s ease forwards;
+  }
+  .hero h1 .gold{color:var(--or);font-style:italic;font-weight:500}
+  .hero-sub{
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--gris);margin-bottom:36px;
+    opacity:0;animation:fadeUp 1s .65s ease forwards;
+  }
+  .hero-sub b{color:var(--blanc);font-weight:500}
+  .hero-quote{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(17px,2vw,22px);
+    line-height:1.55;color:#d8d8d8;
+    max-width:640px;margin:0 auto 48px;
+    opacity:0;animation:fadeUp 1s .85s ease forwards;
+  }
+  .hero-cta-wrap{opacity:0;animation:fadeUp 1s 1.05s ease forwards}
+
+  /* ---------- Gold CTA ---------- */
+  .btn-gold{
+    display:inline-block;
+    padding:20px 48px;
+    font-family:var(--sans);
+    font-size:14px;font-weight:500;
+    letter-spacing:.24em;text-transform:uppercase;
+    color:var(--noir);
+    background:linear-gradient(135deg,#e8c558 0%,#D4AF37 50%,#a8862a 100%);
+    border:none;cursor:pointer;
+    position:relative;overflow:hidden;
+    transition:transform .4s ease, box-shadow .4s ease;
+    box-shadow:0 8px 30px rgba(212,175,55,.25), inset 0 1px 0 rgba(255,255,255,.3);
+  }
+  .btn-gold::before{
+    content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+    transition:left .8s ease;
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(212,175,55,.4)}
+  .btn-gold:hover::before{left:100%}
+  .btn-hint{display:block;margin-top:18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+
+  /* ---------- Scroll cue ---------- */
+  .scroll-cue{
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gris);
+    opacity:0;animation:fadeIn 1s 1.5s ease forwards;
+  }
+  .scroll-cue::after{
+    content:"";display:block;width:1px;height:40px;margin:12px auto 0;
+    background:linear-gradient(to bottom,var(--or),transparent);
+    animation:scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+  /* ---------- Section header ---------- */
+  .section-head{text-align:center;margin-bottom:80px}
+  .eyebrow{
+    display:inline-block;font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--or);margin-bottom:18px;
+  }
+  .section-head h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(32px,4.5vw,52px);line-height:1.15;letter-spacing:-.01em;
+    max-width:760px;margin:0 auto;
+  }
+  .section-head h2 em{color:var(--or);font-style:italic}
+  .divider{width:60px;height:1px;background:var(--or);margin:24px auto 0;opacity:.5}
+
+  /* ---------- Cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  @media (max-width:900px){ .cards{grid-template-columns:1fr;max-width:480px;margin:0 auto} }
+  .card{
+    background:linear-gradient(180deg,var(--noir-3),var(--noir-2));
+    border:1px solid rgba(212,175,55,.15);
+    padding:48px 36px;
+    text-align:left;
+    position:relative;overflow:hidden;
+    transition:border-color .5s ease, transform .5s ease;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--or),transparent);
+    opacity:0;transition:opacity .5s ease;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.45)}
+  .card:hover::before{opacity:1}
+  .card-num{font-family:var(--serif);font-size:14px;letter-spacing:.3em;color:var(--or);margin-bottom:28px}
+  .card-icon{font-size:36px;margin-bottom:20px;display:block}
+  .card h3{
+    font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2;
+    margin-bottom:14px;color:var(--blanc);
+  }
+  .card p{color:var(--gris);font-size:15px;line-height:1.7}
+
+  /* ---------- Pour qui ---------- */
+  .pourqui{background:var(--noir-2);position:relative}
+  .pourqui::before,.pourqui::after{
+    content:"";position:absolute;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);
+  }
+  .pourqui::before{top:0}.pourqui::after{bottom:0}
+  .pourqui-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:24px;
+    max-width:1000px;margin:0 auto;
+  }
+  @media (max-width:900px){ .pourqui-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:480px){ .pourqui-grid{grid-template-columns:1fr} }
+  .pourqui-item{
+    text-align:center;padding:32px 16px;
+    border:1px solid rgba(245,245,245,.06);
+    transition:all .4s ease;
+  }
+  .pourqui-item:hover{border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.03)}
+  .pourqui-check{
+    width:36px;height:36px;border:1px solid var(--or);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 16px;color:var(--or);font-size:14px;
+  }
+  .pourqui-item p{font-size:14px;letter-spacing:.1em;color:var(--blanc)}
+
+  /* ---------- Immersive quote ---------- */
+  .immersive{
+    padding:160px 24px;text-align:center;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.08), transparent 60%), var(--noir);
+  }
+  .immersive::before{
+    content:"";position:absolute;inset:0;
+    background:url('https://project--bde7699c-0759-4c45-8b55-917723569597.lovable.app/__l5e/assets-v1/c1455186-ff36-4dd6-922f-1ef11436236b/hero-cane-corso.jpg') center/cover no-repeat;
+    opacity:.15;filter:grayscale(.4);
+  }
+  .immersive::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom, var(--noir), rgba(11,11,11,.7), var(--noir));
+  }
+  .immersive blockquote{
+    position:relative;z-index:1;
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(28px,4.5vw,52px);
+    line-height:1.25;letter-spacing:-.01em;
+    max-width:900px;margin:0 auto;
+    color:var(--blanc);
+  }
+  .immersive blockquote .gold{color:var(--or);display:block;margin-top:.3em}
+  .immersive .mark{
+    font-family:var(--serif);font-size:80px;line-height:0;
+    color:var(--or);opacity:.4;display:block;margin-bottom:30px;
+  }
+
+  /* ---------- Audio section ---------- */
+  .audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:48px}
+  @media (max-width:800px){ .audio-grid{grid-template-columns:1fr} }
+  .audio-card{
+    border:1px solid rgba(212,175,55,.2);
+    padding:48px 40px;background:var(--noir-2);
+    position:relative;transition:all .5s ease;
+  }
+  .audio-card:hover{border-color:var(--or);transform:translateY(-4px)}
+  .audio-part{
+    font-family:var(--serif);font-size:13px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--or);margin-bottom:24px;
+  }
+  .audio-card h3{
+    font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.25;
+    color:var(--blanc);margin-bottom:20px;
+  }
+  .audio-meta{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--gris);font-size:13px;letter-spacing:.1em;
+    padding-top:20px;border-top:1px solid rgba(245,245,245,.08);
+    width:100%;margin-top:24px;
+  }
+  .audio-meta svg{width:16px;height:16px;stroke:var(--or)}
+  .audio-badge{
+    text-align:center;display:inline-flex;align-items:center;gap:12px;
+    margin:0 auto;padding:14px 28px;
+    border:1px solid var(--or);color:var(--or);
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+  }
+  .audio-badge-wrap{text-align:center}
+
+  /* ---------- Benefits ---------- */
+  .benefits{background:var(--noir-2)}
+  .benefits-list{
+    max-width:760px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+  }
+  @media (max-width:700px){ .benefits-list{grid-template-columns:1fr} }
+  .benefit{
+    padding:32px 0;display:flex;align-items:flex-start;gap:20px;
+    border-bottom:1px solid rgba(245,245,245,.08);
+  }
+  .benefit-check{
+    flex-shrink:0;width:28px;height:28px;
+    border:1px solid var(--or);color:var(--or);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;
+  }
+  .benefit p{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--blanc)}
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  @media (max-width:900px){ .testi-grid{grid-template-columns:1fr;max-width:540px;margin:0 auto} }
+  .testi{
+    padding:40px 32px;
+    background:linear-gradient(180deg,var(--noir-3),var(--noir-2));
+    border:1px solid rgba(245,245,245,.06);
+    position:relative;
+  }
+  .testi-stars{color:var(--or);font-size:14px;letter-spacing:.2em;margin-bottom:20px}
+  .testi-quote{
+    font-family:var(--serif);font-style:italic;
+    font-size:18px;line-height:1.55;color:#e2e2e2;
+    margin-bottom:28px;
+  }
+  .testi-author{
+    display:flex;align-items:center;gap:14px;
+    padding-top:22px;border-top:1px solid rgba(212,175,55,.15);
+  }
+  .testi-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--or),var(--or-soft));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--noir);font-weight:600;font-size:15px;
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .testi-name{font-size:14px;color:var(--blanc);font-weight:500}
+  .testi-role{font-size:12px;color:var(--gris);letter-spacing:.05em}
+
+  /* ---------- Final CTA ---------- */
+  .final{
+    text-align:center;padding:160px 24px;
+    background:
+      radial-gradient(ellipse at center top, rgba(212,175,55,.18), transparent 50%),
+      radial-gradient(ellipse at center bottom, rgba(212,175,55,.08), transparent 50%),
+      var(--noir);
+    position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:600px;height:600px;
+    background:radial-gradient(circle, var(--or-glow), transparent 70%);
+    filter:blur(60px);pointer-events:none;
+  }
+  .final-content{position:relative;z-index:1;max-width:760px;margin:0 auto}
+  .final h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(36px,5.5vw,62px);line-height:1.1;letter-spacing:-.01em;
+    margin-bottom:24px;
+  }
+  .final h2 em{color:var(--or);font-style:italic}
+  .final-sub{font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--gris);margin-bottom:40px}
+  .final-includes{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:24px;
+    margin-bottom:48px;
+  }
+  .final-includes span{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:14px;color:#d8d8d8;
+    padding:10px 20px;border:1px solid rgba(212,175,55,.25);
+    background:rgba(212,175,55,.04);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:#070707;padding:80px 24px 40px;text-align:center;
+    border-top:1px solid rgba(212,175,55,.15);
+  }
+  footer .logo-foot{width:120px;height:auto;margin:0 auto 24px;opacity:.85}
+  footer h4{
+    font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--blanc);margin-bottom:20px;
+  }
+  footer .foot-quote{
+    font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.6;
+    color:var(--gris);max-width:520px;margin:0 auto 40px;
+  }
+  footer .foot-quote em{color:var(--or);font-style:italic}
+  .foot-sep{width:40px;height:1px;background:var(--or);margin:0 auto 32px;opacity:.5}
+  .foot-copy{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#555}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="https://project--bde7699c-0759-4c45-8b55-917723569597.lovable.app/__l5e/assets-v1/7e540113-6f73-4e55-8b9e-1824b05891e7/logo-marque.png" alt="L'Héritage des Colosses" />
+    <span>L'Héritage des Colosses</span>
+  </div>
+  <a href="#final" class="nav-cta">Recevoir le pack</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">🐾 L'Héritage des Colosses</div>
+    <h1>Le Pack Découverte <span class="gold">Cane Corso</span></h1>
+    <p class="hero-sub"><b>Blueprint Essentiel</b> &nbsp;•&nbsp; <b>Audio Exclusif</b> &nbsp;•&nbsp; <b>Checklist</b></p>
+    <p class="hero-quote">« Parce qu'au fond, un Cane Corso n'a pas besoin d'un maître parfait. Il a besoin d'un guide juste, calme et digne de sa confiance. »</p>
+    <div class="hero-cta-wrap">
+      <a href="https://canecorso8.gumroad.com/l/nkfogp" data-gumroad-action="buy" class="btn-gold">Recevoir le Pack Gratuit</a>
+      <span class="btn-hint">Accès immédiat • 100% gratuit</span>
+    </div>
+  </div>
+  <div class="scroll-cue">Explorer</div>
+</header>
+
+<!-- CE QUE VOUS RECEVREZ -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Le Pack</div>
+      <h2>Ce que vous recevrez <em>aujourd'hui</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">— 01</div>
+        <span class="card-icon">📖</span>
+        <h3>Blueprint Essentiel</h3>
+        <p>Comprendre les fondations d'un Cane Corso équilibré. Les piliers psychologiques et comportementaux qui transformeront votre relation pour les dix prochaines années.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">— 02</div>
+        <span class="card-icon">🎧</span>
+        <h3>Audio Exclusif</h3>
+        <p>Les 5 choses que j'aurais aimé savoir avant d'avoir un Cane Corso. Une conversation honnête, sans filtre, à écouter à l'aube ou en promenade.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">— 03</div>
+        <span class="card-icon">✦</span>
+        <h3>Checklist du Propriétaire Responsable</h3>
+        <p>Les habitudes quotidiennes qui font la différence — celles qui forgent un chien équilibré, et celles que personne ne vous a jamais dites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="pourqui reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pour qui</div>
+      <h2>Conçu pour <em>celles et ceux</em> qui prennent la race au sérieux</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pourqui-grid">
+      <div class="pourqui-item"><div class="pourqui-check">✓</div><p>Futurs propriétaires</p></div>
+      <div class="pourqui-item"><div class="pourqui-check">✓</div><p>Nouveaux propriétaires</p></div>
+      <div class="pourqui-item"><div class="pourqui-check">✓</div><p>Passionnés</p></div>
+      <div class="pourqui-item"><div class="pourqui-check">✓</div><p>Familles</p></div>
+      <div class="pourqui-item"><div class="pourqui-check">✓</div><p>Propriétaires expérimentés</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMMERSIVE QUOTE -->
+<section class="immersive">
+  <blockquote>
+    <span class="mark">“</span>
+    Le Cane Corso ne cherche pas un maître.
+    <span class="gold">Il cherche un capitaine.</span>
+  </blockquote>
+</section>
+
+<!-- AUDIO -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Audio Exclusif</div>
+      <h2>Deux parties, <em>une conversation rare</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="audio-grid">
+      <div class="audio-card">
+        <div class="audio-part">Partie I</div>
+        <h3>Les 5 Choses Que J'Aurais Aimé Savoir Avant d'Avoir un Cane Corso</h3>
+        <p style="color:var(--gris);font-size:14px;line-height:1.7">Les vérités que personne ne raconte aux futurs propriétaires — celles qui changent tout, dès la première semaine.</p>
+        <div class="audio-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+          Écoute immersive
+        </div>
+      </div>
+      <div class="audio-card">
+        <div class="audio-part">Partie II</div>
+        <h3>Ce Que les Meilleurs Propriétaires Comprennent Avec le Temps</h3>
+        <p style="color:var(--gris);font-size:14px;line-height:1.7">Une lecture intime des codes silencieux — calme, posture, présence — qui distinguent ceux qui marchent vraiment aux côtés de leur chien.</p>
+        <div class="audio-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+          Écoute immersive
+        </div>
+      </div>
+    </div>
+    <div class="audio-badge-wrap">
+      <span class="audio-badge">+ de 15 minutes d'écoute</span>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bénéfices</div>
+      <h2>Ce que vous emporterez avec vous</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="benefits-list">
+      <div class="benefit"><div class="benefit-check">✓</div><p>Comprendre son chien</p></div>
+      <div class="benefit"><div class="benefit-check">✓</div><p>Éviter les erreurs classiques</p></div>
+      <div class="benefit"><div class="benefit-check">✓</div><p>Développer une relation équilibrée</p></div>
+      <div class="benefit"><div class="benefit-check">✓</div><p>Construire une confiance durable</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Témoignages</div>
+      <h2>Ils marchent désormais <em>aux côtés</em> de leur Cane Corso</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★ ★ ★ ★ ★</div>
+        <p class="testi-quote">« J'ai relu le Blueprint trois fois. Quelque chose s'est apaisé entre Nero et moi — comme s'il avait enfin senti que je savais où on allait. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div><div class="testi-name">Julien M.</div><div class="testi-role">Propriétaire depuis 4 ans</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★ ★ ★ ★ ★</div>
+        <p class="testi-quote">« L'audio m'a parlé comme un ami qui aurait été là avant moi. Indispensable avant d'adopter. Rien à voir avec ce qu'on lit ailleurs. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CA</div>
+          <div><div class="testi-name">Camille A.</div><div class="testi-role">Future propriétaire</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★ ★ ★ ★ ★</div>
+        <p class="testi-quote">« Après 12 ans de Cane Corso, je pensais tout savoir. La checklist m'a rappelé l'essentiel — la posture du capitaine. Merci. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SR</div>
+          <div><div class="testi-name">Samuel R.</div><div class="testi-role">Éleveur passionné</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="final">
+  <div class="final-content reveal">
+    <div class="eyebrow">Le moment</div>
+    <h2>Commencez votre <em>voyage</em> aujourd'hui</h2>
+    <p class="final-sub">Recevez immédiatement</p>
+    <div class="final-includes">
+      <span>📖 Blueprint Essentiel</span>
+      <span>🎧 Audio Exclusif</span>
+      <span>✦ Checklist du Propriétaire Responsable</span>
+    </div>
+    <a href="https://canecorso8.gumroad.com/l/nkfogp" data-gumroad-action="buy" class="btn-gold">Recevoir le Pack Gratuit</a>
+    <span class="btn-hint">Accès immédiat • Sans engagement</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="logo-foot" src="https://project--bde7699c-0759-4c45-8b55-917723569597.lovable.app/__l5e/assets-v1/7e540113-6f73-4e55-8b9e-1824b05891e7/logo-marque.png" alt="L'Héritage des Colosses" />
+  <h4>🐾 L'Héritage des Colosses</h4>
+  <p class="foot-quote">« On ne possède pas un Cane Corso. <em>On gagne le droit de marcher à ses côtés.</em> »</p>
+  <div class="foot-sep"></div>
+  <p class="foot-copy">© L'Héritage des Colosses — Tous droits réservés</p>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
